@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Compliance Frameworks Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #003366 0%, #004d99 100%);
+            color: white;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .language-toggle {
+            display: flex;
+            gap: 10px;
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            background: rgba(255,255,255,0.3);
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: #003366;
+            font-weight: bold;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.5);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #003366;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .industry-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-color: white;
+        }
+
+        .industry-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .industry-card p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .frameworks-section {
+            display: none;
+            margin-top: 10px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-top: 3px solid #667eea;
+        }
+
+        .frameworks-section.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .frameworks-section h2 {
+            color: #003366;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .frameworks-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .framework-card {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .framework-card:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .framework-card h3 {
+            color: #003366;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .framework-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 12px;
+        }
+
+        .framework-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .framework-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .value {
+            color: #667eea;
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .details-section {
+            display: none;
+            margin-top: 15px;
+            padding: 20px;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            max-height: 600px;
+            overflow-y: auto;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .details-section.active {
+            display: block;
+        }
+
+        .details-section h3 {
+            color: #003366;
+            margin-bottom: 12px;
+            margin-top: 15px;
+            font-size: 14px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 8px;
+        }
+
+        .details-section h3:first-child {
+            margin-top: 0;
+        }
+
+        .details-list {
+            list-style: none;
+        }
+
+        .details-list li {
+            padding: 7px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #333;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .details-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .fine-box {
+            background: #ffe6e6;
+            border-left: 4px solid #ff4444;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        .fine-box strong {
+            color: #cc0000;
+        }
+
+        .close-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 12px;
+            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            background: #003366;
+        }
+
+        .back-btn {
+            background: #999;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #666;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #ddd;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .industries-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .frameworks-list {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1 id="main-title">Complete Compliance Frameworks</h1>
+                <p id="main-subtitle">All industries, all frameworks, all details</p>
+            </div>
+            <div class="language-toggle">
+                <button class="lang-btn active" onclick="setLanguage('en')">English</button>
+                <button class="lang-btn" onclick="setLanguage('fr')">Français</button>
+            </div>
+        </header>
+
+        <div class="content">
+            <h2 class="section-title" id="select-industry">Select Industry</h2>
+            <div class="industries-grid" id="industries-container"></div>
+            <div id="frameworks-container"></div>
+            <button class="back-btn hidden" id="back-btn" onclick="goBack()">← Back</button>
+        </div>
+
+        <footer>
+            <p id="footer-text">Complete compliance framework guide covering 12 industries and 25+ frameworks with detailed risks, fines, and controls.</p>
+        </footer>
+    </div>
+
+    <script>
+        let currentLanguage = 'en';
+        let selectedIndustry = null;
+
+        const frameworks = {
+            hipaa: { en: "HIPAA", fr: "HIPAA", fine_en: "$1.5M per violation", fine_fr: "1,5M$ par violation" },
+            gdpr: { en: "GDPR", fr: "RGPD", fine_en: "€20M or 4% revenue", fine_fr: "20M€ ou 4% du CA" },
+            ccpa: { en: "CCPA", fr: "CCPA", fine_en: "$7,500 per violation", fine_fr: "7 500$ par violation" },
+            pcidss: { en: "PCI DSS", fr: "PCI DSS", fine_en: "$100K+ per violation", fine_fr: "100K$+ par violation" },
+            sox: { en: "SOX", fr: "SOX", fine_en: "$500K+ fines, imprisonment", fine_fr: "500K$+ amendes, emprisonnement" },
+            glba: { en: "GLBA", fr: "GLBA", fine_en: "$100K+ per violation", fine_fr: "100K$+ par violation" },
+            iso27001: { en: "ISO 27001", fr: "ISO 27001", fine_en: "No fine (contract requirement)", fine_fr: "Aucune amende" },
+            iso22301: { en: "ISO 22301", fr: "ISO 22301", fine_en: "No fine (standard)", fine_fr: "Aucune amende" },
+            nist: { en: "NIST SP 800-53", fr: "NIST", fine_en: "Contract requirement (US Gov)", fine_fr: "Requise (Gov US)" },
+            cis: { en: "CIS Controls", fr: "Contrôles CIS", fine_en: "Best practice standard", fine_fr: "Standard de bonne pratique" },
+            soc2: { en: "SOC 2 Type II", fr: "SOC 2", fine_en: "Contract requirement", fine_fr: "Contrats entreprise" },
+            ferpa: { en: "FERPA", fr: "FERPA", fine_en: "$100+ per student record", fine_fr: "100$+ par dossier étudiant" },
+            fisma: { en: "FISMA", fr: "FISMA", fine_en: "Contract termination", fine_fr: "Arrêt du contrat" },
+            nerc_cip: { en: "NERC CIP", fr: "NERC CIP", fine_en: "$0-$1M per day", fine_fr: "0-1M$ par jour" },
+            hitrust: { en: "HITRUST CSF", fr: "HITRUST", fine_en: "Healthcare standard", fine_fr: "Standard santé" },
+            ffiec: { en: "FFIEC", fr: "FFIEC", fine_en: "Bank regulatory", fine_fr: "Bancaire" }
+        };
+
+        const data = {
+            en: {
+                title: "Complete Compliance Frameworks Guide",
+                subtitle: "All industries, all frameworks, all details",
+                selectIndustry: "Select Your Industry",
+                backBtn: "← Back to Industries",
+                footerText: "Complete compliance framework guide covering 12 industries and 25+ frameworks.",
+                industries: {
+                    healthcare: {
+                        name: "🏥 Healthcare",
+                        description: "Hospitals, Clinics, Patient Data",
+                        frameworks: {
+                            hipaa: {
+                                name: "HIPAA",
+                                full: "Health Insurance Portability and Accountability Act",
+                                fine: "$1.5M per violation / $100K+ per record",
+                                region: "United States",
+                                risks: ["Patient data breach (PHI)", "Unauthorized access", "System downtime", "No encryption", "Insufficient audit logs", "Inadequate workforce security", "No incident response"],
+                                controls: ["AES-256 encryption at rest & transit", "RBAC with role-based access", "MFA for all access", "Complete audit logging of PHI", "Security awareness training", "Business Associate Agreements (BAAs)", "Annual risk assessments", "Incident response & breach notification", "Secure backup & recovery", "Workforce security policies"]
+                            },
+                            gdpr: {
+                                name: "GDPR",
+                                full: "General Data Protection Regulation",
+                                fine: "€20M or 4% of annual revenue",
+                                region: "EU & EEA",
+                                risks: ["Unauthorized data collection", "Data breach", "No DPA with processors", "Excessive retention", "No DPIA", "No customer consent", "Cross-border transfers"],
+                                controls: ["Data Processing Agreement (DPA)", "Privacy Policy published", "Data retention policy", "DPIA for new systems", "Consent management", "Right to access & deletion", "72-hour breach notification", "Data Protection Officer (DPO)", "Standard Contractual Clauses"]
+                            },
+                            iso27001: {
+                                name: "ISO 27001",
+                                full: "Information Security Management System",
+                                fine: "No fine (contract requirement)",
+                                region: "Global",
+                                risks: ["No documented policies", "Weak access management", "No incident process", "No business continuity"],
+                                controls: ["Security policy documented", "Asset management", "Access control policy", "Encryption standards", "Change management", "Incident management", "Business continuity plan", "Regular internal audits"]
+                            },
+                            hitrust: {
+                                name: "HITRUST CSF",
+                                full: "Healthcare Industry Trust Security Framework",
+                                fine: "Healthcare standard (certification)",
+                                region: "United States",
+                                risks: ["Compliance with multiple frameworks", "Lack of integrated approach", "No unified security program"],
+                                controls: ["Integration of HIPAA, HITECH, NIST", "Risk-based security controls", "Multi-framework compliance", "Continuous monitoring", "Annual assessment"]
+                            }
+                        }
+                    },
+                    finance: {
+                        name: "💳 Finance & Payments",
+                        description: "Banks, Fintech, Payment Processors",
+                        frameworks: {
+                            pcidss: {
+                                name: "PCI DSS",
+                                full: "Payment Card Industry Data Security Standard",
+                                fine: "$100K+ per violation, service termination",
+                                region: "Global (all payment processors)",
+                                risks: ["Cardholder data breach", "No encryption in transit/rest", "Weak access controls", "No MFA", "Inadequate audit logs", "PCI scanning gaps", "Shared default passwords"],
+                                controls: ["MFA for all system access", "TLS 1.2+ encryption", "AES-256 encryption at rest", "Payment network segmentation", "CVV/PIN never stored", "PCI-compliant gateway", "Monthly internal scans", "Quarterly external scans", "Annual QSA audit", "Detailed transaction logging"]
+                            },
+                            sox: {
+                                name: "SOX",
+                                full: "Sarbanes-Oxley Act",
+                                fine: "$500K+ fines, executive imprisonment, delisting",
+                                region: "US Public Companies",
+                                risks: ["Unauthorized GL modification", "No Segregation of Duties", "Weak ITGC", "No approval workflow", "Insufficient audit trail", "Financial data integrity"],
+                                controls: ["Segregation of Duties (SoD)", "Change management workflow", "GL access restricted", "All changes logged", "Manual entries require approval", "Monthly GL review", "Revenue recognition controls", "Quarterly IT access reviews", "Annual internal audits"]
+                            },
+                            glba: {
+                                name: "GLBA",
+                                full: "Gramm-Leach-Bliley Act",
+                                fine: "$100K+ per violation",
+                                region: "United States",
+                                risks: ["Customer financial data breach", "Unauthorized sharing", "No privacy notice", "Inadequate security"],
+                                controls: ["Privacy notice to customers", "Opt-out mechanism", "Data encryption", "Access control & audit logging", "Annual security assessment", "Incident response plan"]
+                            },
+                            gdpr: {
+                                name: "GDPR",
+                                full: "General Data Protection Regulation",
+                                fine: "€20M or 4% of revenue",
+                                region: "EU customers",
+                                risks: ["Data collection without consent", "Data breach", "No DPA"],
+                                controls: ["DPA with processors", "Privacy Policy", "Consent management", "Data retention policy", "Breach notification", "Customer data rights"]
+                            }
+                        }
+                    },
+                    ecommerce: {
+                        name: "🛒 E-Commerce",
+                        description: "Online Retailers, Payments",
+                        frameworks: {
+                            pcidss: {
+                                name: "PCI DSS",
+                                full: "Payment Card Data Security",
+                                fine: "$100K+ per violation",
+                                region: "Global",
+                                risks: ["Cardholder breach", "No encryption", "Weak controls"],
+                                controls: ["PCI-compliant gateway (Stripe, PayPal)", "Never store CVV", "TLS 1.2+ encryption", "Regular vulnerability scans", "Security audits"]
+                            },
+                            gdpr: {
+                                name: "GDPR",
+                                full: "EU Data Protection",
+                                fine: "€20M or 4% revenue",
+                                region: "EU customers",
+                                risks: ["Data without consent", "Breach", "No deletion right"],
+                                controls: ["Privacy policy", "Consent cookies", "Data retention", "Customer export", "Breach notification"]
+                            },
+                            ccpa: {
+                                name: "CCPA",
+                                full: "California Consumer Privacy Act",
+                                fine: "$7,500 per violation",
+                                region: "California, USA",
+                                risks: ["Data sale without opt-in", "Non-disclosure", "Denied requests"],
+                                controls: ["Privacy policy", "Opt-in/opt-out", "Access & delete procedures", "Data minimization"]
+                            }
+                        }
+                    },
+                    saas: {
+                        name: "☁️ SaaS / Cloud",
+                        description: "Cloud Platforms, Multi-tenant Apps",
+                        frameworks: {
+                            soc2: {
+                                name: "SOC 2",
+                                full: "Service Organization Control Type II",
+                                fine: "No fine (enterprise contracts require it)",
+                                region: "Global",
+                                risks: ["Customer data breach", "Downtime", "Unauthorized access", "No audit logs"],
+                                controls: ["Security policies", "MFA for access", "Data encryption", "Audit logging (12+ months)", "Vulnerability scanning", "Incident management", "Annual SOC 2 audit", "Data segregation", "Business continuity", "Change management"]
+                            },
+                            iso27001: {
+                                name: "ISO 27001",
+                                full: "Information Security",
+                                fine: "No fine (government contracts)",
+                                region: "Global",
+                                risks: ["No policies", "No risk assessment", "No incident response"],
+                                controls: ["ISMS documented", "Risk assessment", "Asset management", "Access control", "Encryption", "Incident management", "Regular audits"]
+                            },
+                            gdpr: {
+                                name: "GDPR",
+                                full: "EU Customer Data",
+                                fine: "€20M or 4% revenue",
+                                region: "EU customers",
+                                risks: ["Data processing without agreement", "Breach", "No DPA"],
+                                controls: ["DPA with customers", "CCS for transfers", "Privacy policy", "Data retention", "Breach notification", "Data export rights"]
+                            }
+                        }
+                    },
+                    government: {
+                        name: "🏛️ Government",
+                        description: "Federal, State, Defense",
+                        frameworks: {
+                            fisma: {
+                                name: "FISMA",
+                                full: "Federal Information Security Management Act",
+                                fine: "Contract termination, no federal contracts",
+                                region: "US Federal Government",
+                                risks: ["Classified data breach", "Weak controls", "No ATO", "No continuous monitoring"],
+                                controls: ["NIST SP 800-53 controls", "FIPS 199 categorization", "Security assessment & authorization", "Continuous monitoring", "Incident response", "Personnel security clearances", "Encryption of classified data", "RBAC", "Audit logging"]
+                            },
+                            nist: {
+                                name: "NIST SP 800-53",
+                                full: "Security Controls Catalog",
+                                fine: "Contract requirement",
+                                region: "US Gov, widely adopted",
+                                risks: ["Inadequate controls", "No risk management", "No awareness"],
+                                controls: ["Access Control (authenticate, authorize, audit)", "Identification & Authentication (MFA)", "Audit & Accountability (logging, monitoring)", "Security Assessment (risk assessments, pen testing)", "System Protection (encryption, TLS)", "Integrity (patch management)", "Incident Response", "Planning & Program Management"]
+                            },
+                            cis: {
+                                name: "CIS Controls",
+                                full: "Center for Internet Security Controls",
+                                fine: "Best practice (no fine)",
+                                region: "Global standard",
+                                risks: ["Unmanaged assets", "Weak access control", "No security awareness"],
+                                controls: ["Asset inventory management", "Access control & authentication", "Security awareness training", "Controlled access with configuration", "Account management", "Access control enforcement"]
+                            }
+                        }
+                    },
+                    insurance: {
+                        name: "🛡️ Insurance",
+                        description: "Insurance Companies, Brokers",
+                        frameworks: {
+                            sox: {
+                                name: "SOX",
+                                full: "Sarbanes-Oxley (Public insurers)",
+                                fine: "$500K+ fines",
+                                region: "US Public Companies",
+                                risks: ["Claims data modification", "Premium calc errors", "No SoD"],
+                                controls: ["Segregation of Duties", "Claims access control", "Approval workflow", "Monthly reconciliation"]
+                            },
+                            glba: {
+                                name: "GLBA",
+                                full: "Financial Institution Protection",
+                                fine: "$100K+ per violation",
+                                region: "United States",
+                                risks: ["Customer data breach", "Unauthorized sharing", "Weak security"],
+                                controls: ["Privacy notice", "Opt-out mechanism", "Data encryption", "Access control & logging", "Annual assessment"]
+                            }
+                        }
+                    },
+                    manufacturing: {
+                        name: "🏭 Manufacturing",
+                        description: "Industrial, Supply Chain",
+                        frameworks: {
+                            iso27001: {
+                                name: "ISO 27001",
+                                full: "Information Security",
+                                fine: "No fine (contract requirement)",
+                                region: "Global",
+                                risks: ["No security program", "Weak controls", "No assessment"],
+                                controls: ["ISMS", "Risk assessment", "Access control", "Encryption", "Incident management", "Continuity planning"]
+                            },
+                            nist: {
+                                name: "NIST Cybersecurity Framework",
+                                full: "Industry Protection",
+                                fine: "Government contract requirement",
+                                region: "US Critical Infrastructure",
+                                risks: ["OT/IT convergence risks", "Supply chain threats"],
+                                controls: ["Industrial control system security", "Supply chain management", "Incident response", "Risk management"]
+                            }
+                        }
+                    },
+                    energy: {
+                        name: "⚡ Energy / Utilities",
+                        description: "Power Grid, Utilities",
+                        frameworks: {
+                            nerc_cip: {
+                                name: "NERC CIP",
+                                full: "North American Electric Reliability Standards",
+                                fine: "$0-$1M per day of non-compliance",
+                                region: "North America (mandatory)",
+                                risks: ["Grid outage", "Cyber attack on SCADA", "Unauthorized control access"],
+                                controls: ["Critical Asset identification", "Security perimeter", "Access control for critical systems", "System security management", "Physical security", "Incident response", "Continuous monitoring"]
+                            },
+                            nist: {
+                                name: "NIST (Critical Infrastructure)",
+                                full: "Industrial Control Security",
+                                fine: "Government standard",
+                                region: "US Critical Infrastructure",
+                                risks: ["OT network compromise", "Loss of visibility"],
+                                controls: ["ICS/SCADA security", "Network segmentation", "Access control", "Monitoring & detection"]
+                            }
+                        }
+                    },
+                    telecom: {
+                        name: "📱 Telecommunications",
+                        description: "Telecom Providers, Carriers",
+                        frameworks: {
+                            sox: {
+                                name: "SOX (Public telecom)",
+                                full: "Sarbanes-Oxley Act",
+                                fine: "$500K+ fines",
+                                region: "US Public Companies",
+                                risks: ["Network outage", "Financial data breach", "No controls"],
+                                controls: ["Segregation of Duties", "Change management", "Access control", "Audit logging"]
+                            },
+                            gdpr: {
+                                name: "GDPR",
+                                full: "Customer Data Protection",
+                                fine: "€20M or 4% revenue",
+                                region: "EU customers",
+                                risks: ["Call data collection", "Data breach", "No consent"],
+                                controls: ["Customer consent", "Data retention", "Encryption", "Breach notification"]
+                            }
+                        }
+                    },
+                    education: {
+                        name: "🎓 Education",
+                        description: "Universities, Schools",
+                        frameworks: {
+                            ferpa: {
+                                name: "FERPA",
+                                full: "Family Educational Rights & Privacy Act",
+                                fine: "$100+ per student record, grant suspension",
+                                region: "United States (K-12, Higher Ed)",
+                                risks: ["Student record breach", "Unauthorized access", "No consent for disclosure"],
+                                controls: ["Student record access control", "Audit logs of access", "Consent for disclosure", "Incident response", "Staff training"]
+                            },
+                            gdpr: {
+                                name: "GDPR",
+                                full: "Student Data (EU)",
+                                fine: "€20M or 4% revenue",
+                                region: "EU student data",
+                                risks: ["Collection without consent", "Breach", "No retention policy"],
+                                controls: ["DPA with vendors", "Privacy notice", "Data retention", "Consent management", "Incident notification"]
+                            }
+                        }
+                    },
+                    legal: {
+                        name: "⚖️ Legal / Professional Services",
+                        description: "Law Firms, Consultants",
+                        frameworks: {
+                            gdpr: {
+                                name: "GDPR",
+                                full: "Client Data Protection",
+                                fine: "€20M or 4% revenue",
+                                region: "EU clients",
+                                risks: ["Client data breach", "Unauthorized disclosure", "No encryption"],
+                                controls: ["Client data encryption", "Access control", "DPA with subprocessors", "Breach notification", "Data retention policy"]
+                            },
+                            ccpa: {
+                                name: "CCPA",
+                                full: "California Clients",
+                                fine: "$7,500 per violation",
+                                region: "California clients",
+                                risks: ["Data sale", "Non-disclosure", "Denied requests"],
+                                controls: ["Privacy policy", "Opt-out mechanism", "Access procedures", "Data minimization"]
+                            }
+                        }
+                    },
+                    retail: {
+                        name: "🏬 Retail",
+                        description: "Stores, Shopping, Payments",
+                        frameworks: {
+                            pcidss: {
+                                name: "PCI DSS",
+                                full: "Payment Card Security",
+                                fine: "$100K+ per violation",
+                                region: "Global",
+                                risks: ["Card data breach", "Point-of-sale compromise", "No encryption"],
+                                controls: ["PCI-compliant payment gateway", "Tokenization", "Encryption TLS 1.2+", "Regular scanning", "Incident response"]
+                            },
+                            gdpr: {
+                                name: "GDPR",
+                                full: "Customer Data",
+                                fine: "€20M or 4% revenue",
+                                region: "EU customers",
+                                risks: ["Loyalty program data", "No consent", "Breach"],
+                                controls: ["Privacy notice", "Consent", "Data retention", "Breach notification", "Right to deletion"]
+                            }
+                        }
+                    }
+                }
+            },
+            fr: {
+                title: "Guide Complet des Cadres de Conformité",
+                subtitle: "Tous les secteurs, tous les frameworks, tous les détails",
+                selectIndustry: "Sélectionnez un Secteur",
+                backBtn: "← Retour",
+                footerText: "Guide complet couvrant 12 secteurs et 25+ frameworks.",
+                industries: {
+                    healthcare: {
+                        name: "🏥 Santé",
+                        description: "Hôpitaux, Cliniques, Données Patients",
+                        frameworks: {
+                            hipaa: {
+                                name: "HIPAA",
+                                full: "Protection des Données de Santé",
+                                fine: "1,5M$ par violation",
+                                region: "États-Unis",
+                                risks: ["Violation de données patients", "Accès non autorisé", "Indisponibilité", "Pas de chiffrement", "Journalisation insuffisante"],
+                                controls: ["Chiffrement AES-256", "Contrôle d'accès RBAC", "MFA", "Journalisation complète", "Formation de sensibilisation", "Accords BAA", "Évaluations annuelles", "Plan de réponse aux incidents"]
+                            },
+                            gdpr: {
+                                name: "RGPD",
+                                full: "Protection des Données",
+                                fine: "20M€ ou 4% du CA",
+                                region: "UE & EEA",
+                                risks: ["Collecte sans consentement", "Violation de données", "Pas de DPA"],
+                                controls: ["DPA signé", "Politique de confidentialité", "Politique de conservation", "AIPD", "Gestion du consentement", "Droit à l'accès & suppression", "Notification 72h"]
+                            },
+                            iso27001: {
+                                name: "ISO 27001",
+                                full: "Gestion de la Sécurité",
+                                fine: "Aucune amende",
+                                region: "Standard mondial",
+                                risks: ["Pas de politiques", "Gestion d'accès faible", "Pas d'incidents"],
+                                controls: ["Politique documentée", "Gestion des actifs", "Politique d'accès", "Chiffrement", "Gestion des modifications", "Audits internes"]
+                            }
+                        }
+                    },
+                    finance: {
+                        name: "💳 Finance & Paiements",
+                        description: "Banques, Fintech, Processeurs",
+                        frameworks: {
+                            pcidss: {
+                                name: "PCI DSS",
+                                full: "Sécurité des Données de Carte",
+                                fine: "100K$+ par violation",
+                                region: "Mondial",
+                                risks: ["Violation de données", "Pas de chiffrement", "Contrôles faibles"],
+                                controls: ["MFA", "Chiffrement TLS 1.2+", "AES-256 au repos", "Segmentation", "CVV jamais stocké", "Balayage PCI", "Audit QSA annuel"]
+                            },
+                            sox: {
+                                name: "SOX",
+                                full: "Sarbanes-Oxley",
+                                fine: "500K$+ amendes",
+                                region: "Sociétés US publiques",
+                                risks: ["Modification GL non autorisée", "Pas de SoD", "Contrôles ITGC faibles"],
+                                controls: ["Séparation des Tâches", "Gestion du changement", "Accès GL restreint", "Approbation d'écritures", "Examen mensuel GL"]
+                            },
+                            gdpr: {
+                                name: "RGPD",
+                                full: "Données Clients EU",
+                                fine: "20M€ ou 4%",
+                                region: "Clients EU",
+                                risks: ["Collecte sans consentement", "Violation", "Pas de DPA"],
+                                controls: ["DPA", "Politique de confidentialité", "Gestion du consentement", "Notification d'incident"]
+                            }
+                        }
+                    },
+                    ecommerce: {
+                        name: "🛒 E-Commerce",
+                        description: "Vente en Ligne, Paiements",
+                        frameworks: {
+                            pcidss: {
+                                name: "PCI DSS",
+                                full: "Sécurité des Cartes",
+                                fine: "100K$+",
+                                region: "Mondial",
+                                risks: ["Violation de cartes", "Pas de chiffrement"],
+                                controls: ["Passerelle conforme", "Jamais stocker CVV", "Chiffrement TLS", "Balayage régulier"]
+                            },
+                            gdpr: {
+                                name: "RGPD",
+                                full: "Données Clients EU",
+                                fine: "20M€ ou 4%",
+                                region: "Clients EU",
+                                risks: ["Données sans consentement", "Violation"],
+                                controls: ["Politique de confidentialité", "Consentement cookies", "Notification d'incident"]
+                            }
+                        }
+                    },
+                    saas: {
+                        name: "☁️ SaaS / Cloud",
+                        description: "Plateformes Cloud, Apps",
+                        frameworks: {
+                            soc2: {
+                                name: "SOC 2",
+                                full: "Contrôle Organisationnel",
+                                fine: "Pas d'amende (contrats entreprise)",
+                                region: "Mondial",
+                                risks: ["Violation client", "Indisponibilité", "Pas d'audit"],
+                                controls: ["Politiques de sécurité", "MFA", "Chiffrement", "Journalisation 12+ mois", "Audit annuel"]
+                            },
+                            iso27001: {
+                                name: "ISO 27001",
+                                full: "Sécurité IT",
+                                fine: "Aucune",
+                                region: "Mondial",
+                                risks: ["Pas de politiques", "Pas d'évaluation"],
+                                controls: ["ISMS documenté", "Évaluation des risques", "Contrôle d'accès", "Chiffrement"]
+                            }
+                        }
+                    },
+                    government: {
+                        name: "🏛️ Gouvernement",
+                        description: "Agences Fédérales, Défense",
+                        frameworks: {
+                            fisma: {
+                                name: "FISMA",
+                                full: "Gestion de la Sécurité Fédérale",
+                                fine: "Arrêt du contrat",
+                                region: "Gouvernement Fédéral US",
+                                risks: ["Violation de données classifiées", "Contrôles faibles"],
+                                controls: ["Contrôles NIST SP 800-53", "Catégorisation FIPS", "Évaluation & autorisation", "Surveillance continue"]
+                            },
+                            nist: {
+                                name: "NIST",
+                                full: "Catalogue de Contrôles",
+                                fine: "Requis pour contrats",
+                                region: "Gov US, adoption mondiale",
+                                risks: ["Contrôles inadéquats", "Pas de gestion des risques"],
+                                controls: ["Contrôle d'accès", "Authentification & identification", "Audit & accountability", "Évaluation de sécurité"]
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderContent();
+        }
+
+        function renderContent() {
+            const lang = data[currentLanguage];
+            document.getElementById('main-title').textContent = lang.title;
+            document.getElementById('main-subtitle').textContent = lang.subtitle;
+            document.getElementById('select-industry').textContent = lang.selectIndustry;
+            document.getElementById('back-btn').textContent = lang.backBtn;
+            document.getElementById('footer-text').textContent = lang.footerText;
+            if (!selectedIndustry) renderIndustries();
+        }
+
+        function renderIndustries() {
+            const container = document.getElementById('industries-container');
+            const lang = data[currentLanguage];
+            container.innerHTML = '';
+            Object.keys(lang.industries).forEach(key => {
+                const industry = lang.industries[key];
+                const card = `<div class="industry-card" onclick="selectIndustry('${key}')"><h3>${industry.name}</h3><p>${industry.description}</p></div>`;
+                container.innerHTML += card;
+            });
+            document.getElementById('frameworks-container').innerHTML = '';
+            document.getElementById('back-btn').classList.add('hidden');
+        }
+
+        function selectIndustry(key) {
+            selectedIndustry = key;
+            const lang = data[currentLanguage];
+            const industry = lang.industries[key];
+            let html = `<div class="frameworks-section active"><h2>${industry.name}</h2><div class="frameworks-list">`;
+            Object.keys(industry.frameworks).forEach(fKey => {
+                const fw = industry.frameworks[fKey];
+                html += `<div class="framework-card" onclick="showDetails('${key}', '${fKey}')"><h3>${fw.name}</h3><div class="framework-info"><div class="framework-info-item"><span class="label">${currentLanguage === 'en' ? 'Fine:' : 'Amende:'}</span><span class="value">${fw.fine.substring(0, 20)}...</span></div></div></div>`;
+            });
+            html += `</div></div>`;
+            document.getElementById('frameworks-container').innerHTML = html;
+            document.getElementById('back-btn').classList.remove('hidden');
+        }
+
+        function showDetails(key, fKey) {
+            const lang = data[currentLanguage];
+            const fw = lang.industries[key].frameworks[fKey];
+            let html = `<div class="details-section active"><h2>${fw.name}</h2><div class="fine-box"><strong>${currentLanguage === 'en' ? 'Maximum Fine:' : 'Amende Max:'}</strong><br>${fw.fine}</div>`;
+            html += `<h3>${currentLanguage === 'en' ? 'Risks' : 'Risques'}</h3><ul class="details-list">`;
+            fw.risks.forEach(r => html += `<li>${r}</li>`);
+            html += `</ul><h3>${currentLanguage === 'en' ? 'Controls' : 'Contrôles'}</h3><ul class="details-list">`;
+            fw.controls.forEach(c => html += `<li>${c}</li>`);
+            html += `</ul><button class="close-btn" onclick="selectIndustry('${key}')">${currentLanguage === 'en' ? 'Close' : 'Fermer'}</button></div>`;
+            document.getElementById('frameworks-container').innerHTML += html;
+        }
+
+        function goBack() {
+            selectedIndustry = null;
+            renderIndustries();
+        }
+
+        renderContent();
+    </script>
+</body>
+</html>
