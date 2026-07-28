@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compliance Frameworks Guide - Enhanced</title>
+    <title>Compliance Frameworks Guide - Complete</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -61,7 +61,7 @@
         }
         .industries-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 12px;
             align-items: start;
         }
@@ -79,8 +79,8 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             border-color: white;
         }
-        .industry-card h3 { font-size: 16px; margin-bottom: 6px; }
-        .industry-card p { font-size: 11px; opacity: 0.9; line-height: 1.4; }
+        .industry-card h3 { font-size: 14px; margin-bottom: 6px; font-weight: bold; }
+        .industry-card p { font-size: 10px; opacity: 0.9; line-height: 1.4; }
         .frameworks-expanded {
             display: none;
             grid-column: 1 / -1;
@@ -101,18 +101,18 @@
         .frameworks-expanded h2 {
             color: #003366;
             margin-bottom: 15px;
-            font-size: 20px;
+            font-size: 18px;
         }
         .frameworks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
         }
         .framework-card {
             background: white;
             border: 2px solid #ddd;
             border-radius: 8px;
-            padding: 15px;
+            padding: 12px;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -123,28 +123,28 @@
         }
         .framework-card h3 {
             color: #003366;
-            margin-bottom: 8px;
-            font-size: 14px;
+            margin-bottom: 6px;
+            font-size: 13px;
             font-weight: bold;
         }
         .framework-full-name {
             color: #667eea;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 500;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
             border-bottom: 1px solid #eee;
         }
         .framework-info {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            font-size: 11px;
+            gap: 4px;
+            font-size: 10px;
         }
         .framework-info-item {
             display: flex;
             justify-content: space-between;
-            padding: 6px 0;
+            padding: 3px 0;
         }
         .label { font-weight: bold; color: #333; }
         .value { color: #667eea; text-align: right; font-weight: 500; }
@@ -154,81 +154,54 @@
             background: white;
             border: 2px solid #667eea;
             border-radius: 8px;
-            padding: 20px;
+            padding: 15px;
             margin-top: 10px;
-            max-height: 600px;
+            max-height: 500px;
             overflow-y: auto;
             animation: slideDown 0.3s ease-out;
         }
         .details-panel.active { display: block; }
         .details-panel h2 {
             color: #003366;
-            margin-bottom: 15px;
-            font-size: 18px;
+            margin-bottom: 12px;
+            font-size: 16px;
         }
         .definition-box {
             background: #f0f4ff;
             border-left: 4px solid #667eea;
-            padding: 12px;
-            margin-bottom: 15px;
+            padding: 10px;
+            margin-bottom: 12px;
             border-radius: 4px;
-            font-size: 12px;
-            line-height: 1.6;
+            font-size: 11px;
+            line-height: 1.5;
         }
         .why-matters-box {
             background: #e8f5e9;
             border-left: 4px solid #4caf50;
-            padding: 12px;
-            margin-bottom: 15px;
+            padding: 10px;
+            margin-bottom: 12px;
             border-radius: 4px;
-            font-size: 12px;
-            line-height: 1.6;
+            font-size: 11px;
+            line-height: 1.5;
         }
         .fine-box {
             background: #ffe6e6;
             border-left: 4px solid #ff4444;
-            padding: 10px;
+            padding: 8px;
             border-radius: 4px;
-            margin: 10px 0;
-            font-size: 11px;
+            margin: 8px 0;
+            font-size: 10px;
         }
         .fine-box strong { color: #cc0000; }
-        .details-section h3 {
-            color: #003366;
-            margin-bottom: 10px;
-            margin-top: 12px;
-            font-size: 13px;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 6px;
-        }
-        .details-list {
-            list-style: none;
-            margin-left: 0;
-        }
-        .details-list li {
-            padding: 6px 0;
-            padding-left: 20px;
-            position: relative;
-            color: #333;
-            font-size: 11px;
-            line-height: 1.4;
-        }
-        .details-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-        }
         .close-btn {
             background: #667eea;
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 6px 12px;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 12px;
-            margin-top: 10px;
+            font-size: 11px;
+            margin-top: 8px;
             transition: all 0.3s;
         }
         .close-btn:hover { background: #003366; }
@@ -236,11 +209,11 @@
             background: #999;
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 6px 12px;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 13px;
-            margin-bottom: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
             transition: all 0.3s;
         }
         .back-btn:hover { background: #666; }
@@ -249,7 +222,7 @@
             padding: 15px;
             text-align: center;
             color: #666;
-            font-size: 11px;
+            font-size: 10px;
             border-top: 1px solid #ddd;
         }
     </style>
@@ -271,11 +244,11 @@
             <h2 class="section-title" id="select-industry">Select Your Industry</h2>
             <div class="industries-container" id="industries-container"></div>
             <div id="frameworks-container"></div>
-            <button class="back-btn hidden" id="back-btn" onclick="goBack()">← Back to Industries</button>
+            <button class="back-btn" id="back-btn" onclick="goBack()" style="display: none;">← Back to Industries</button>
         </div>
 
         <footer>
-            <p id="footer-text">Complete compliance framework guide with full definitions and industry context</p>
+            <p id="footer-text">Complete compliance framework guide with definitions and industry importance</p>
         </footer>
     </div>
 
@@ -288,310 +261,40 @@
                 title: "Compliance Frameworks Guide",
                 subtitle: "Complete definitions with industry importance",
                 selectIndustry: "Select Your Industry",
-                footerText: "Complete compliance framework guide with full definitions and industry context",
+                footerText: "Complete compliance framework guide with definitions and industry importance",
                 industries: {
-                    healthcare: {
-                        name: "🏥 Healthcare",
-                        description: "Hospitals, Clinics, Patient Data",
-                        frameworks: {
-                            hipaa: {
-                                short: "HIPAA",
-                                full: "Health Insurance Portability and Accountability Act",
-                                fine: "$1.5M per violation",
-                                definition: "A US federal law (1996) that protects patient health information (PHI). It requires healthcare organizations to safeguard patient privacy and ensure data security. Every hospital, clinic, and healthcare provider in the US must comply.",
-                                whyMatters: "Healthcare is a top target for hackers because patient data is valuable (medical records + insurance info). A single breach can cost millions in fines, lawsuits, and lost patient trust. HIPAA violations can shut down a healthcare facility.",
-                                risks: ["Patient data breach", "Unauthorized access to medical records", "System downtime", "No encryption", "Inadequate audit logging"],
-                                controls: ["AES-256 encryption", "RBAC access control", "MFA required", "Audit logging", "Annual assessments", "Business Associate Agreements"]
-                            },
-                            gdpr: {
-                                short: "GDPR",
-                                full: "General Data Protection Regulation",
-                                fine: "€20M or 4% revenue",
-                                definition: "EU law (2018) protecting personal data of all EU citizens. Any organization worldwide that processes EU citizen data must comply. Covers patient records, employee data, customer info — anything personal.",
-                                whyMatters: "Healthcare organizations with EU patients (increasingly common with telemedicine) face massive fines. One data breach = €20M fine minimum. Plus lawsuits from patients. Reputation damage is permanent.",
-                                risks: ["Patient data without consent", "No Data Processing Agreement", "Data breach", "Excessive retention"],
-                                controls: ["Signed DPA", "Privacy Policy", "Data retention policy", "DPIA assessments", "72-hour breach notification", "Data Protection Officer"]
-                            },
-                            iso27001: {
-                                short: "ISO 27001",
-                                full: "Information Security Management System",
-                                fine: "No fine (contract requirement)",
-                                definition: "International standard (2013) for information security. Requires organizations to document, implement, and audit security controls. Widely required by insurance companies and government contracts.",
-                                whyMatters: "Hospitals need ISO 27001 to get cyber liability insurance. Insurance companies require it before they'll insure your data. Without it, no insurance = unlimited financial risk from a breach.",
-                                risks: ["No documented policies", "Weak access management", "No incident process"],
-                                controls: ["ISMS documented", "Risk assessment", "Access control policy", "Encryption standards", "Internal audits"]
-                            }
-                        }
-                    },
-                    finance: {
-                        name: "💳 Finance & Payments",
-                        description: "Banks, Fintech, Payment Processors",
-                        frameworks: {
-                            pcidss: {
-                                short: "PCI DSS",
-                                full: "Payment Card Industry Data Security Standard",
-                                fine: "$100K+ per violation, service termination",
-                                definition: "Global standard (2004) protecting credit/debit card data. Every company that processes, stores, or transmits card data must comply. Visa, Mastercard, and Amex enforce it.",
-                                whyMatters: "One card data breach = bankruptcy. Customers sue. Your payment processor (Stripe, Square) will TERMINATE your account immediately. You lose all payment processing ability overnight. Business ends.",
-                                risks: ["Cardholder data breach", "No encryption", "Weak controls", "No MFA", "Inadequate audit logging"],
-                                controls: ["MFA required", "TLS 1.2+ encryption", "AES-256 at rest", "PCI gateway", "Monthly scanning", "Annual audits"]
-                            },
-                            sox: {
-                                short: "SOX",
-                                full: "Sarbanes-Oxley Act",
-                                fine: "$500K+ fines, CEO imprisonment, delisting",
-                                definition: "US law (2002) requiring public companies to have internal controls over financial reporting. Designed to prevent accounting fraud (response to Enron scandal).",
-                                whyMatters: "Public companies MUST comply or face delisting from stock exchange. CEO goes to jail. Stock price crashes. Shareholders sue. Company loses all access to capital markets.",
-                                risks: ["Unauthorized GL modification", "No Segregation of Duties", "Weak ITGC"],
-                                controls: ["Segregation of Duties", "Change management", "GL access restricted", "Monthly GL review", "Audit trail 7+ years"]
-                            },
-                            gdpr: {
-                                short: "GDPR",
-                                full: "General Data Protection Regulation",
-                                fine: "€20M or 4% revenue",
-                                definition: "EU law protecting personal data. Applies to any fintech serving EU customers.",
-                                whyMatters: "Fintech with EU customers faces massive fines if data is breached. Plus reputational damage kills user trust. Startups can't afford €20M fines.",
-                                risks: ["Data without consent", "Data breach", "No DPA"],
-                                controls: ["DPA with processors", "Privacy Policy", "Consent management", "Notification procedures"]
-                            }
-                        }
-                    },
-                    ecommerce: {
-                        name: "🛒 E-Commerce",
-                        description: "Online Retailers, Payments",
-                        frameworks: {
-                            pcidss: {
-                                short: "PCI DSS",
-                                full: "Payment Card Industry Data Security Standard",
-                                fine: "$100K+ per violation",
-                                definition: "Standard for protecting card data in online transactions.",
-                                whyMatters: "E-commerce businesses live on payment processing. One breach = customers lose trust forever. Online retailers have 0 margin for security failures.",
-                                risks: ["Card data breach", "No encryption", "Weak controls"],
-                                controls: ["PCI gateway", "Never store CVV", "TLS encryption", "Vulnerability scans"]
-                            },
-                            gdpr: {
-                                short: "GDPR",
-                                full: "General Data Protection Regulation",
-                                fine: "€20M or 4% revenue",
-                                definition: "EU data protection law.",
-                                whyMatters: "E-commerce sites with EU shoppers must comply. One breach + GDPR violation = catastrophic. Customers are EU-based.",
-                                risks: ["Data without consent", "Breach", "No deletion right"],
-                                controls: ["Privacy policy", "Consent cookies", "Retention policy", "Notification"]
-                            },
-                            ccpa: {
-                                short: "CCPA",
-                                full: "California Consumer Privacy Act",
-                                fine: "$7,500 per violation",
-                                definition: "California law (2020) giving consumers rights over personal data.",
-                                whyMatters: "Any e-commerce selling to California residents must comply. Fines are per violation, so a data breach = millions. California is 12% of US population.",
-                                risks: ["Data sale without opt-in", "Non-disclosure", "Denied requests"],
-                                controls: ["Privacy policy", "Opt-in/opt-out", "Access procedures", "Data minimization"]
-                            }
-                        }
-                    },
-                    saas: {
-                        name: "☁️ SaaS / Cloud",
-                        description: "Cloud Platforms, Multi-tenant Apps",
-                        frameworks: {
-                            soc2: {
-                                short: "SOC 2",
-                                full: "Service Organization Control Type II",
-                                fine: "No fine (enterprise contracts require it)",
-                                definition: "Audit standard proving a cloud service is secure. Enterprises won't buy from you without SOC 2 certification.",
-                                whyMatters: "Enterprise customers (your paying customers) REQUIRE SOC 2 before signing contracts. No SOC 2 = no enterprise sales = no revenue. It's a gate for SaaS growth.",
-                                risks: ["Customer data breach", "Downtime", "No audit logs"],
-                                controls: ["Security policies", "MFA access", "Encryption", "Audit logging", "Annual audit"]
-                            },
-                            iso27001: {
-                                short: "ISO 27001",
-                                full: "Information Security Management System",
-                                fine: "None (government contracts)",
-                                definition: "International security standard.",
-                                whyMatters: "Government contracts won't work with you without ISO 27001. Also required for some enterprise deals.",
-                                risks: ["No policies", "No assessment"],
-                                controls: ["ISMS documented", "Risk assessment", "Access control", "Regular audits"]
-                            }
-                        }
-                    },
-                    education: {
-                        name: "🎓 Education",
-                        description: "Universities, Schools",
-                        frameworks: {
-                            ferpa: {
-                                short: "FERPA",
-                                full: "Family Educational Rights & Privacy Act",
-                                fine: "$100+ per student record, grant suspension",
-                                definition: "US law (1974) protecting student education records. Schools that lose federal funding if they don't comply.",
-                                whyMatters: "Schools are government-funded. Violate FERPA = lose federal funding = school closes. Parents sue. Students' educational records are private — breach destroys family trust.",
-                                risks: ["Student record breach", "Unauthorized access", "No consent for disclosure"],
-                                controls: ["Record access control", "Audit logs", "Consent procedures", "Incident response"]
-                            },
-                            gdpr: {
-                                short: "GDPR",
-                                full: "General Data Protection Regulation",
-                                fine: "€20M or 4% revenue",
-                                definition: "EU data protection law.",
-                                whyMatters: "Schools with EU students (increasingly common with international programs) must comply. Student data breaches trigger massive fines + lawsuits from parents.",
-                                risks: ["Student data breach", "No consent"],
-                                controls: ["DPA with vendors", "Privacy notice", "Retention policy", "Consent management"]
-                            }
-                        }
-                    }
+                    healthcare: { name: "🏥 Healthcare", desc: "Hospitals, Clinics", frameworks: { hipaa: { short: "HIPAA", full: "Health Insurance Portability and Accountability Act", fine: "$1.5M", def: "US federal law protecting patient health information. Every hospital must comply.", why: "Healthcare data is extremely valuable to criminals. A breach can cost hospitals millions in fines, lawsuits, and lost patient trust. Hospitals have closed due to HIPAA violations." }, gdpr: { short: "GDPR", full: "General Data Protection Regulation", fine: "€20M or 4%", def: "EU law protecting personal data worldwide. Any organization processing EU citizen data must comply.", why: "Telemedicine is global. EU patients mean EU compliance is mandatory. One breach = massive fines + reputation damage." }, iso27001: { short: "ISO 27001", full: "Information Security Management System", fine: "None", def: "International security standard requiring documented controls.", why: "Hospitals need ISO 27001 to get cyber liability insurance. Without insurance, a breach is financially catastrophic." } } },
+                    finance: { name: "💳 Finance", desc: "Banks, Fintech", frameworks: { pcidss: { short: "PCI DSS", full: "Payment Card Industry Data Security Standard", fine: "$100K+", def: "Global standard for protecting credit card data in every transaction.", why: "One card breach = bankruptcy. Your payment processor terminates immediately. Business ends overnight." }, sox: { short: "SOX", full: "Sarbanes-Oxley Act", fine: "$500K+", def: "US law requiring public companies to have strong financial controls.", why: "Public companies face delisting, CEO imprisonment, shareholder lawsuits. Violating SOX is catastrophic." }, glba: { short: "GLBA", full: "Gramm-Leach-Bliley Act", fine: "$100K+", def: "US law protecting financial customer data and requiring privacy safeguards.", why: "Banks must protect customer financial data. Violations result in massive fines and loss of customer trust." }, gdpr: { short: "GDPR", full: "General Data Protection Regulation", fine: "€20M or 4%", def: "EU law protecting personal data. Applies to any fintech serving EU customers.", why: "Fintech with EU customers faces enormous fines if data is breached. Reputational damage kills startups." } } },
+                    ecommerce: { name: "🛒 E-Commerce", desc: "Online Retailers", frameworks: { pcidss: { short: "PCI DSS", full: "Payment Card Industry Data Security Standard", fine: "$100K+", def: "Standard for protecting card data in online transactions.", why: "E-commerce depends on payment processing. One breach = customers never trust you again." }, gdpr: { short: "GDPR", full: "General Data Protection Regulation", fine: "€20M or 4%", def: "EU data protection law. Applies to any e-commerce selling to EU customers.", why: "E-commerce sites with EU shoppers must comply. One breach is catastrophic for online retailers." }, ccpa: { short: "CCPA", full: "California Consumer Privacy Act", fine: "$7,500 per violation", def: "California law giving consumers rights over their personal data.", why: "Any e-commerce selling to California residents must comply. California is 12% of US population = massive exposure." } } },
+                    saas: { name: "☁️ SaaS / Cloud", desc: "Cloud Platforms", frameworks: { soc2: { short: "SOC 2", full: "Service Organization Control Type II", fine: "Required", def: "Audit standard proving a cloud service is secure and meets enterprise standards.", why: "Enterprise customers REQUIRE SOC 2 before signing contracts. No SOC 2 = no enterprise sales = no revenue." }, iso27001: { short: "ISO 27001", full: "Information Security Management System", fine: "None", def: "International security standard required by government contracts.", why: "Government contracts require ISO 27001. No ISO = no government deals." }, gdpr: { short: "GDPR", full: "General Data Protection Regulation", fine: "€20M or 4%", def: "EU law protecting personal data stored in the cloud.", why: "Any SaaS with EU customers must comply. One breach = massive fines." } } },
+                    government: { name: "🏛️ Government", desc: "Federal, Defense", frameworks: { fisma: { short: "FISMA", full: "Federal Information Security Management Act", fine: "Contract termination", def: "US federal law requiring agencies to protect federal information systems.", why: "Government agencies must comply. Violations result in contract termination and loss of federal work." }, nist: { short: "NIST SP 800-53", full: "NIST Cybersecurity Framework", fine: "Required", def: "US government security standard defining security controls.", why: "Government contracts require NIST compliance. Without it, no federal work is possible." } } },
+                    insurance: { name: "🛡️ Insurance", desc: "Insurance Cos", frameworks: { sox: { short: "SOX", full: "Sarbanes-Oxley Act", fine: "$500K+", def: "Public companies must have strong financial controls.", why: "Insurance companies that are public must comply or face delisting." }, glba: { short: "GLBA", full: "Gramm-Leach-Bliley Act", fine: "$100K+", def: "Law protecting financial customer data.", why: "Insurance companies handle customer financial data. Violations result in massive fines." } } },
+                    retail: { name: "🏬 Retail", desc: "Stores, Shopping", frameworks: { pcidss: { short: "PCI DSS", full: "Payment Card Industry Data Security Standard", fine: "$100K+", def: "Standard for protecting card data at point of sale.", why: "Retail stores process cards every second. One POS breach = massive liability." }, gdpr: { short: "GDPR", full: "General Data Protection Regulation", fine: "€20M or 4%", def: "EU law protecting loyalty customer data.", why: "Retail chains with EU loyalty programs must comply. One breach = catastrophic fines." } } },
+                    energy: { name: "⚡ Energy", desc: "Power, Utilities", frameworks: { nerc_cip: { short: "NERC CIP", full: "North American Electric Reliability Corporation Critical Infrastructure Protection", fine: "$1M+ per day", def: "Standard protecting electrical grid from cyber attacks. Utilities must comply.", why: "Attacking the power grid affects millions. Violations result in massive fines and criminal prosecution." } } },
+                    education: { name: "🎓 Education", desc: "Universities, Schools", frameworks: { ferpa: { short: "FERPA", full: "Family Educational Rights & Privacy Act", fine: "$100+ per record", def: "US law protecting student education records from disclosure.", why: "Schools lose federal funding if they violate FERPA. Violations result in school closures." }, gdpr: { short: "GDPR", full: "General Data Protection Regulation", fine: "€20M or 4%", def: "EU law protecting student personal data. International schools must comply.", why: "Schools with EU students must comply. One breach = massive fines + parent lawsuits." } } },
+                    legal: { name: "⚖️ Legal", desc: "Law Firms", frameworks: { gdpr: { short: "GDPR", full: "General Data Protection Regulation", fine: "€20M or 4%", def: "EU law protecting client personal data.", why: "Law firms with EU clients must comply. Attorney-client privilege + data breach = legal nightmare." }, iso27001: { short: "ISO 27001", full: "Information Security Management System", fine: "None", def: "International security standard required by corporate clients.", why: "Corporate clients require ISO 27001 before engaging law firms." } } },
+                    telecom: { name: "📱 Telecom", desc: "Carriers, ISPs", frameworks: { gdpr: { short: "GDPR", full: "General Data Protection Regulation", fine: "€20M or 4%", def: "EU law protecting telecom customer data.", why: "Telecom companies handle customer phone/location data. One breach = massive fines." }, ccpa: { short: "CCPA", full: "California Consumer Privacy Act", fine: "$7,500 per violation", def: "California law giving customers rights over telecom data.", why: "California telecom customers have strong data rights. Violations are frequent and expensive." } } },
+                    manufacturing: { name: "🏭 Manufacturing", desc: "Plants, Supply Chain", frameworks: { iso27001: { short: "ISO 27001", full: "Information Security Management System", fine: "None", def: "International security standard for operational technology.", why: "Manufacturing plants need ISO 27001 for supply chain contracts and OT security." }, nist: { short: "NIST SP 800-53", full: "NIST Cybersecurity Framework", fine: "Required", def: "US standard for protecting manufacturing systems.", why: "Defense contractors require NIST compliance for manufacturing plants." } } }
                 }
             },
             fr: {
                 title: "Guide Complet des Cadres de Conformité",
                 subtitle: "Définitions complètes avec importance industrielle",
                 selectIndustry: "Sélectionnez un Secteur",
-                footerText: "Guide complet avec définitions et contexte industriel",
+                footerText: "Guide complet avec définitions et importance dans l'industrie",
                 industries: {
-                    healthcare: {
-                        name: "🏥 Santé",
-                        description: "Hôpitaux, Cliniques, Données Patients",
-                        frameworks: {
-                            hipaa: {
-                                short: "HIPAA",
-                                full: "Health Insurance Portability and Accountability Act",
-                                fine: "1,5M$ par violation",
-                                definition: "Loi fédérale US (1996) protégeant les données patients (PHI). Chaque hôpital, clinique et fournisseur de soins doit se conformer.",
-                                whyMatters: "La santé est une cible privilégiée des pirates car les données patients sont précieuses. Une violation peut coûter des millions en amendes et poursuites. HIPAA peut fermer un établissement.",
-                                risks: ["Violation de données patients", "Accès non autorisé", "Indisponibilité système", "Pas de chiffrement"],
-                                controls: ["Chiffrement AES-256", "Contrôle d'accès RBAC", "MFA obligatoire", "Journalisation d'audit", "Évaluations annuelles"]
-                            },
-                            gdpr: {
-                                short: "RGPD",
-                                full: "Règlement Général sur la Protection des Données",
-                                fine: "20M€ ou 4% du CA",
-                                definition: "Loi UE (2018) protégeant les données personnelles de tous les citoyens EU.",
-                                whyMatters: "Les organisations de santé avec patients EU font face à des amendes massives. Une violation = 20M€ minimum. Les poursuites sont inévitables.",
-                                risks: ["Données sans consentement", "Pas de DPA", "Violation de données"],
-                                controls: ["DPA signé", "Politique de confidentialité", "Politique de conservation", "AIPD", "Notification 72h"]
-                            },
-                            iso27001: {
-                                short: "ISO 27001",
-                                full: "Système de Gestion de la Sécurité de l'Information",
-                                fine: "Aucune amende (contrats)",
-                                definition: "Standard international (2013) pour la sécurité de l'information.",
-                                whyMatters: "Les hôpitaux ont besoin d'ISO 27001 pour l'assurance cyber. Sans elle, pas d'assurance = risque financier illimité en cas de violation.",
-                                risks: ["Pas de politiques", "Gestion d'accès faible"],
-                                controls: ["ISMS documenté", "Évaluation des risques", "Politique d'accès", "Audits internes"]
-                            }
-                        }
-                    },
-                    finance: {
-                        name: "💳 Finance & Paiements",
-                        description: "Banques, Fintech, Processeurs de Paiement",
-                        frameworks: {
-                            pcidss: {
-                                short: "PCI DSS",
-                                full: "Norme de Sécurité des Données de Carte",
-                                fine: "100K$+ par violation, arrêt du service",
-                                definition: "Standard mondial (2004) protégeant les données de carte. Chaque entreprise traitant les données de carte doit se conformer.",
-                                whyMatters: "Une violation de données de carte = faillite. Les clients poursuivent. Votre processeur de paiement ARRÊTE votre compte immédiatement. L'activité s'arrête.",
-                                risks: ["Violation de données de carte", "Pas de chiffrement", "Contrôles faibles", "Pas de MFA"],
-                                controls: ["MFA obligatoire", "Chiffrement TLS 1.2+", "AES-256 au repos", "Passerelle PCI", "Balayage mensuel"]
-                            },
-                            sox: {
-                                short: "SOX",
-                                full: "Loi Sarbanes-Oxley",
-                                fine: "500K$+ amendes, emprisonnement PDG, radiation",
-                                definition: "Loi US (2002) exigeant le contrôle interne des sociétés publiques.",
-                                whyMatters: "Les sociétés publiques DOIVENT se conformer ou faire face à la radiation. Le PDG va en prison. Le cours de l'action s'effondre.",
-                                risks: ["Modification GL non autorisée", "Pas de SoD", "ITGC faible"],
-                                controls: ["Séparation des Tâches", "Gestion du changement", "Accès GL restreint", "Examen mensuel GL"]
-                            },
-                            gdpr: {
-                                short: "RGPD",
-                                full: "Règlement Général sur la Protection des Données",
-                                fine: "20M€ ou 4% du CA",
-                                definition: "Loi UE protégeant les données personnelles.",
-                                whyMatters: "Les fintech avec clients EU font face à des amendes massives. La violation affecte la confiance des utilisateurs.",
-                                risks: ["Données sans consentement", "Violation de données", "Pas de DPA"],
-                                controls: ["DPA avec processeurs", "Politique de confidentialité", "Gestion du consentement"]
-                            }
-                        }
-                    },
-                    ecommerce: {
-                        name: "🛒 E-Commerce",
-                        description: "Vente en Ligne, Paiements",
-                        frameworks: {
-                            pcidss: {
-                                short: "PCI DSS",
-                                full: "Norme de Sécurité des Données de Carte",
-                                fine: "100K$+",
-                                definition: "Standard protégeant les données de carte dans les transactions en ligne.",
-                                whyMatters: "Les sites e-commerce dépendent du traitement des paiements. Une violation = perte de confiance des clients pour toujours.",
-                                risks: ["Violation de données de carte", "Pas de chiffrement"],
-                                controls: ["Passerelle PCI", "CVV jamais stocké", "Chiffrement TLS"]
-                            },
-                            gdpr: {
-                                short: "RGPD",
-                                full: "Règlement Général sur la Protection des Données",
-                                fine: "20M€ ou 4%",
-                                definition: "Loi de protection des données EU.",
-                                whyMatters: "Les sites e-commerce avec clients EU doivent se conformer. Une violation = catastrophique.",
-                                risks: ["Données sans consentement", "Violation"],
-                                controls: ["Politique de confidentialité", "Consentement cookies", "Politique de conservation"]
-                            },
-                            ccpa: {
-                                short: "CCPA",
-                                full: "California Consumer Privacy Act",
-                                fine: "7 500$ par violation",
-                                definition: "Loi de Californie (2020) donnant des droits aux consommateurs.",
-                                whyMatters: "Tout site vendant aux résidents californiens doit se conformer. Les amendes s'accumulent par violation.",
-                                risks: ["Vente de données sans opt-in", "Non-divulgation"],
-                                controls: ["Politique de confidentialité", "Opt-in/opt-out", "Minimisation des données"]
-                            }
-                        }
-                    },
-                    saas: {
-                        name: "☁️ SaaS / Cloud",
-                        description: "Plateformes Cloud, Applications Multi-tenant",
-                        frameworks: {
-                            soc2: {
-                                short: "SOC 2",
-                                full: "Service Organization Control Type II",
-                                fine: "Pas d'amende (contrats entreprise)",
-                                definition: "Standard d'audit prouvant qu'un service cloud est sécurisé.",
-                                whyMatters: "Les clients entreprise EXIGENT SOC 2 avant de signer. Pas de SOC 2 = pas de ventes entreprise = pas de revenus.",
-                                risks: ["Violation client", "Indisponibilité", "Pas d'audit"],
-                                controls: ["Politiques de sécurité", "MFA", "Chiffrement", "Journalisation audit", "Audit annuel"]
-                            },
-                            iso27001: {
-                                short: "ISO 27001",
-                                full: "Système de Gestion de la Sécurité de l'Information",
-                                fine: "Aucune (contrats gouvernement)",
-                                definition: "Standard international de sécurité.",
-                                whyMatters: "Les contrats gouvernement exigent ISO 27001. Aussi requis pour certains contrats entreprise.",
-                                risks: ["Pas de politiques", "Pas d'évaluation"],
-                                controls: ["ISMS documenté", "Évaluation des risques", "Contrôle d'accès"]
-                            }
-                        }
-                    },
-                    education: {
-                        name: "🎓 Éducation",
-                        description: "Universités, Écoles",
-                        frameworks: {
-                            ferpa: {
-                                short: "FERPA",
-                                full: "Family Educational Rights & Privacy Act",
-                                fine: "100$+ par dossier étudiant, suspension des subventions",
-                                definition: "Loi US (1974) protégeant les dossiers éducatifs des étudiants.",
-                                whyMatters: "Les écoles financées par le gouvernement doivent se conformer. Violer FERPA = perdre les subventions fédérales = fermeture de l'école.",
-                                risks: ["Violation de dossiers étudiants", "Accès non autorisé"],
-                                controls: ["Contrôle d'accès", "Journaux d'audit", "Procédures de consentement"]
-                            },
-                            gdpr: {
-                                short: "RGPD",
-                                full: "Règlement Général sur la Protection des Données",
-                                fine: "20M€ ou 4%",
-                                definition: "Loi UE de protection des données.",
-                                whyMatters: "Les écoles avec étudiants EU (de plus en plus courant) doivent se conformer. Les violations affectent les familles.",
-                                risks: ["Violation de données étudiants", "Pas de consentement"],
-                                controls: ["DPA avec fournisseurs", "Avis de confidentialité", "Gestion du consentement"]
-                            }
-                        }
-                    }
+                    healthcare: { name: "🏥 Santé", desc: "Hôpitaux, Cliniques", frameworks: { hipaa: { short: "HIPAA", full: "Health Insurance Portability and Accountability Act", fine: "1,5M$", def: "Loi fédérale US protégeant les données patients. Chaque hôpital doit se conformer.", why: "Les données médicales sont précieuses pour les pirates. Une violation peut coûter des millions en amendes et poursuites." }, gdpr: { short: "RGPD", full: "Règlement Général sur la Protection des Données", fine: "20M€ ou 4%", def: "Loi UE protégeant les données personnelles. Toute organisation traitant les données EU doit se conformer.", why: "La télémédecine est mondiale. Les patients EU signifient que la conformité RGPD est obligatoire." }, iso27001: { short: "ISO 27001", full: "Système de Gestion de la Sécurité de l'Information", fine: "Aucune", def: "Standard international de sécurité avec contrôles documentés.", why: "Les hôpitaux ont besoin d'ISO 27001 pour l'assurance cyber. Sans elle, une violation est catastrophique." } } },
+                    finance: { name: "💳 Finance", desc: "Banques, Fintech", frameworks: { pcidss: { short: "PCI DSS", full: "Norme de Sécurité des Données de Carte", fine: "100K$+", def: "Standard mondial protégeant les données de carte dans chaque transaction.", why: "Une violation = faillite. Votre processeur de paiement arrête votre compte immédiatement." }, sox: { short: "SOX", full: "Loi Sarbanes-Oxley", fine: "500K$+", def: "Loi US exigeant que les sociétés publiques aient des contrôles financiers solides.", why: "Les violations entraînent la radiation et l'emprisonnement du PDG." }, glba: { short: "GLBA", full: "Loi Gramm-Leach-Bliley", fine: "100K$+", def: "Loi US protégeant les données clients financiers.", why: "Les banques doivent protéger les données des clients. Les violations entraînent des amendes massives." }, gdpr: { short: "RGPD", full: "Règlement Général sur la Protection des Données", fine: "20M€ ou 4%", def: "Loi UE protégeant les données personnelles. S'applique aux fintech servant les clients EU.", why: "Les fintech avec clients EU font face à des amendes énormes en cas de violation." } } },
+                    ecommerce: { name: "🛒 E-Commerce", desc: "Vente en Ligne", frameworks: { pcidss: { short: "PCI DSS", full: "Norme de Sécurité des Données de Carte", fine: "100K$+", def: "Standard protégeant les données de carte dans les transactions en ligne.", why: "L'e-commerce dépend du traitement des paiements. Une violation = clients qui ne font plus confiance." }, gdpr: { short: "RGPD", full: "Règlement Général sur la Protection des Données", fine: "20M€ ou 4%", def: "Loi UE protégeant les données. S'applique à tout site vendant aux clients EU.", why: "Les sites e-commerce avec clients EU doivent se conformer. Une violation est catastrophique." }, ccpa: { short: "CCPA", full: "California Consumer Privacy Act", fine: "7 500$ par violation", def: "Loi californienne donnant des droits aux consommateurs sur leurs données.", why: "Tout site vendant aux Californiens doit se conformer. La Californie = 12% de la population US." } } },
+                    saas: { name: "☁️ SaaS / Cloud", desc: "Plateformes Cloud", frameworks: { soc2: { short: "SOC 2", full: "Service Organization Control Type II", fine: "Requis", def: "Standard d'audit prouvant qu'un service cloud est sécurisé.", why: "Les clients entreprise EXIGENT SOC 2 avant de signer. Pas de SOC 2 = pas de ventes." }, iso27001: { short: "ISO 27001", full: "Système de Gestion de la Sécurité", fine: "Aucune", def: "Standard international requis par les contrats gouvernementaux.", why: "Les contrats gouvernement exigent ISO 27001. Pas d'ISO = pas de contrats gouvernement." }, gdpr: { short: "RGPD", full: "Règlement Général sur la Protection des Données", fine: "20M€ ou 4%", def: "Loi UE protégeant les données stockées dans le cloud.", why: "Tout SaaS avec clients EU doit se conformer. Une violation = amendes massives." } } },
+                    government: { name: "🏛️ Gouvernement", desc: "Agences Fédérales", frameworks: { fisma: { short: "FISMA", full: "Federal Information Security Management Act", fine: "Arrêt du contrat", def: "Loi fédérale US exigeant que les agences protègent les systèmes fédéraux.", why: "Les agences gouvernementales doivent se conformer. Les violations = arrêt des contrats." }, nist: { short: "NIST SP 800-53", full: "Cadre de Cybersécurité NIST", fine: "Requis", def: "Standard gouvernemental US définissant les contrôles de sécurité.", why: "Les contrats gouvernement exigent la conformité NIST. Sans elle, aucun travail fédéral." } } },
+                    insurance: { name: "🛡️ Assurance", desc: "Compagnies", frameworks: { sox: { short: "SOX", full: "Loi Sarbanes-Oxley", fine: "500K$+", def: "Sociétés publiques doivent avoir des contrôles financiers solides.", why: "Les compagnies d'assurance publiques doivent se conformer ou faire face à la radiation." }, glba: { short: "GLBA", full: "Loi Gramm-Leach-Bliley", fine: "100K$+", def: "Loi protégeant les données clients financiers.", why: "Les compagnies d'assurance gèrent les données clients. Les violations = amendes massives." } } },
+                    retail: { name: "🏬 Commerce de Détail", desc: "Magasins", frameworks: { pcidss: { short: "PCI DSS", full: "Norme de Sécurité des Données de Carte", fine: "100K$+", def: "Standard protégeant les données de carte au point de vente.", why: "Les magasins traitent les cartes constamment. Une violation POS = responsabilité massive." }, gdpr: { short: "RGPD", full: "Règlement Général sur la Protection des Données", fine: "20M€ ou 4%", def: "Loi UE protégeant les données de fidélité client.", why: "Les chaînes de détail avec programmes EU doivent se conformer. Une violation = amendes catastrophiques." } } },
+                    energy: { name: "⚡ Énergie", desc: "Électricité, Utilities", frameworks: { nerc_cip: { short: "NERC CIP", full: "Protection des Infrastructures Critiques NERC", fine: "1M$+ par jour", def: "Standard protégeant le réseau électrique des cyberattaques.", why: "Attaquer le réseau électrique affecte des millions de personnes. Les violations = poursuites criminelles." } } },
+                    education: { name: "🎓 Éducation", desc: "Universités, Écoles", frameworks: { ferpa: { short: "FERPA", full: "Family Educational Rights & Privacy Act", fine: "100$+ par dossier", def: "Loi US protégeant les dossiers étudiants contre la divulgation.", why: "Les écoles perdent le financement fédéral si elles violent FERPA. Les violations = fermeture d'écoles." }, gdpr: { short: "RGPD", full: "Règlement Général sur la Protection des Données", fine: "20M€ ou 4%", def: "Loi UE protégeant les données personnelles des étudiants. Les écoles internationales doivent se conformer.", why: "Les écoles avec étudiants EU doivent se conformer. Une violation = amendes massives et poursuites." } } },
+                    legal: { name: "⚖️ Juridique", desc: "Cabinets d'Avocats", frameworks: { gdpr: { short: "RGPD", full: "Règlement Général sur la Protection des Données", fine: "20M€ ou 4%", def: "Loi UE protégeant les données personnelles des clients.", why: "Les cabinets avec clients EU doivent se conformer. Secret professionnel + violation = cauchemar juridique." }, iso27001: { short: "ISO 27001", full: "Système de Gestion de la Sécurité", fine: "Aucune", def: "Standard international requis par les clients corporatifs.", why: "Les clients corporatifs exigent ISO 27001 avant d'engager des cabinets." } } },
+                    telecom: { name: "📱 Télécom", desc: "Opérateurs, FAI", frameworks: { gdpr: { short: "RGPD", full: "Règlement Général sur la Protection des Données", fine: "20M€ ou 4%", def: "Loi UE protégeant les données clients télécom.", why: "Les opérateurs gèrent les données de localisation client. Une violation = amendes massives." }, ccpa: { short: "CCPA", full: "California Consumer Privacy Act", fine: "7 500$ par violation", def: "Loi californienne donnant des droits aux clients sur les données télécom.", why: "Les clients californiens ont des droits forts. Les violations sont fréquentes et coûteuses." } } },
+                    manufacturing: { name: "🏭 Fabrication", desc: "Usines, Supply Chain", frameworks: { iso27001: { short: "ISO 27001", full: "Système de Gestion de la Sécurité", fine: "Aucune", def: "Standard international pour la technologie opérationnelle.", why: "Les usines ont besoin d'ISO 27001 pour les contrats de supply chain." }, nist: { short: "NIST SP 800-53", full: "Cadre de Cybersécurité NIST", fine: "Requis", def: "Standard US protégeant les systèmes de fabrication.", why: "Les entrepreneurs militaires exigent la conformité NIST pour les usines." } } }
                 }
             }
         };
@@ -617,40 +320,36 @@
             const lang = data[currentLanguage];
             container.innerHTML = '';
             Object.keys(lang.industries).forEach(key => {
-                const industry = lang.industries[key];
-                const card = `<div class="industry-card" onclick="selectIndustry('${key}')"><h3>${industry.name}</h3><p>${industry.description}</p></div>`;
+                const ind = lang.industries[key];
+                const card = `<div class="industry-card" onclick="selectIndustry('${key}')"><h3>${ind.name}</h3><p>${ind.desc}</p></div>`;
                 container.innerHTML += card;
             });
             document.getElementById('frameworks-container').innerHTML = '';
-            document.getElementById('back-btn').classList.add('hidden');
+            document.getElementById('back-btn').style.display = 'none';
         }
 
         function selectIndustry(key) {
             selectedIndustry = key;
             const lang = data[currentLanguage];
-            const industry = lang.industries[key];
-            let html = `<div class="frameworks-expanded active"><h2>${industry.name}</h2><div class="frameworks-grid">`;
-            Object.keys(industry.frameworks).forEach(fKey => {
-                const fw = industry.frameworks[fKey];
+            const ind = lang.industries[key];
+            let html = `<div class="frameworks-expanded active"><h2>${ind.name}</h2><div class="frameworks-grid">`;
+            Object.keys(ind.frameworks).forEach(fKey => {
+                const fw = ind.frameworks[fKey];
                 html += `<div class="framework-card" onclick="showDetails('${key}', '${fKey}')"><h3>${fw.short}</h3><div class="framework-full-name">${fw.full}</div><div class="framework-info"><div class="framework-info-item"><span class="label">${currentLanguage === 'en' ? 'Fine:' : 'Amende:'}</span><span class="value">${fw.fine}</span></div></div></div>`;
             });
             html += `</div></div>`;
             document.getElementById('frameworks-container').innerHTML = html;
-            document.getElementById('back-btn').classList.remove('hidden');
+            document.getElementById('back-btn').style.display = 'block';
         }
 
         function showDetails(key, fKey) {
             const lang = data[currentLanguage];
             const fw = lang.industries[key].frameworks[fKey];
             let html = `<div class="details-panel active"><h2>${fw.full}</h2>`;
-            html += `<div class="definition-box"><strong>${currentLanguage === 'en' ? 'What is it?' : 'C\'est quoi?'}</strong><br>${fw.definition}</div>`;
-            html += `<div class="why-matters-box"><strong>${currentLanguage === 'en' ? '📊 Why it matters in this industry:' : '📊 Pourquoi c\'est important dans ce secteur:'}</strong><br>${fw.whyMatters}</div>`;
+            html += `<div class="definition-box"><strong>${currentLanguage === 'en' ? 'What is it?' : 'C\'est quoi?'}</strong><br>${fw.def}</div>`;
+            html += `<div class="why-matters-box"><strong>${currentLanguage === 'en' ? '📊 Why it matters in this industry:' : '📊 Pourquoi c\'est important:'}</strong><br>${fw.why}</div>`;
             html += `<div class="fine-box"><strong>${currentLanguage === 'en' ? 'Maximum Fine:' : 'Amende Max:'}</strong><br>${fw.fine}</div>`;
-            html += `<div class="details-section"><h3>${currentLanguage === 'en' ? 'Risks' : 'Risques'}</h3><ul class="details-list">`;
-            fw.risks.forEach(r => html += `<li>${r}</li>`);
-            html += `</ul></div><div class="details-section"><h3>${currentLanguage === 'en' ? 'Required Controls' : 'Contrôles Requis'}</h3><ul class="details-list">`;
-            fw.controls.forEach(c => html += `<li>${c}</li>`);
-            html += `</ul></div><button class="close-btn" onclick="selectIndustry('${key}')">${currentLanguage === 'en' ? 'Close Details' : 'Fermer'}</button></div>`;
+            html += `<button class="close-btn" onclick="selectIndustry('${key}')">${currentLanguage === 'en' ? 'Close' : 'Fermer'}</button></div>`;
             document.getElementById('frameworks-container').innerHTML += html;
         }
 
